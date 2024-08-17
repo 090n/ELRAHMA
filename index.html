@@ -9,52 +9,53 @@
     <style>
         body {
             display: flex;
-            flex-direction: column; /* ترتيب العناصر عمودياً */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #2c2c2c; /* خلفية غامقة */
+            background-color: #2c2c2c;
             font-family: 'Arial', sans-serif;
-            color: white; /* لون النص أبيض */
+            color: white;
         }
         .container {
-            text-align: center; /* محاذاة النص في المنتصف */
-            background-color: #444; /* لون خلفية للعنصر */
-            border-radius: 15px; /* زوايا مدورة */
-            padding: 30px; /* مسافة داخلية */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* ظل خفيف */
-            width: 80%; /* عرض العنصر */
-            max-width: 600px; /* أقصى عرض */
+            text-align: center;
+            background-color: #444;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            width: 80%;
+            max-width: 600px;
         }
         h1 {
-            font-size: 24px; /* حجم الخط */
-            margin: 20px 0; /* مسافة فوق وتحت العنوان */
+            font-size: 24px;
+            margin: 20px 0;
         }
         .location-icon {
-            margin-left: 10px; /* مسافة بين النص والأيقونة */
-            font-size: 20px; /* حجم الأيقونة */
+            margin-left: 10px;
+            font-size: 20px;
         }
         .phone-icon {
-            margin-top: 15px; /* مسافة فوق الأيقونة */
-            font-size: 20px; /* حجم الأيقونة */
+            margin-top: 15px;
+            font-size: 20px;
         }
         .phone-number {
-            font-size: 18px; /* حجم خط رقم الهاتف */
-            margin-left: 10px; /* مسافة بين الأيقونة ورقم الهاتف */
+            font-size: 18px;
+            margin-left: 10px;
+            transition: transform 0.1s; /* تأثير الانتقال لتحريك الرقم */
         }
         a {
-            color: white; /* لون الرابط أبيض */
-            text-decoration: none; /* إزالة خط التسطير */
+            color: white;
+            text-decoration: none;
         }
         a:hover {
-            text-decoration: underline; /* إضافة خط التسطير عند التمرير */
+            text-decoration: underline;
         }
         img {
-            max-width: 100%; /* عرض الصورة */
-            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
-            border-radius: 10px; /* زوايا مدورة للصورة */
-            margin-bottom: 20px; /* مسافة تحت الصورة */
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -67,8 +68,19 @@
         </h1>
         <div class="phone-icon">
             <i class="fas fa-phone"></i>
-            <a href="tel:07703784670" class="phone-number">07703784670</a> <!-- رابط الاتصال -->
+            <a href="tel:07703784670" class="phone-number" onclick="phoneClick()">07703784670</a> <!-- رابط الاتصال -->
         </div>
     </div>
+
+    <script>
+        function phoneClick() {
+            const phoneNumber = document.querySelector('.phone-number');
+            phoneNumber.style.transition = 'transform 0.1s'; // إعداد تأثير الانتقال
+            phoneNumber.style.transform = 'scale(1.2)'; // تكبير الرقم
+            setTimeout(() => {
+                phoneNumber.style.transform = 'scale(1)'; // تصغير الرقم
+            }, 100);
+        }
+    </script>
 </body>
 </html>
